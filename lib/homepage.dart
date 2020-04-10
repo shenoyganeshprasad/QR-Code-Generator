@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:qrcode_app/qrcode.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 class Homepage extends StatefulWidget {
   @override
@@ -34,7 +35,7 @@ class _HomepageState extends State<Homepage> {
             ),
           ),
           // SizedBox(height: 30.0),
-          CupertinoButton.filled(
+          PlatformButton(
             child: Text('Generate'),
             onPressed: () {
               if (value != "") {
@@ -46,19 +47,16 @@ class _HomepageState extends State<Homepage> {
                   ),
                 );
               } else {
-                showCupertinoDialog(
+                showPlatformDialog(
                   context: context,
-                  builder: (_) => CupertinoAlertDialog(
+                  builder: (_) => PlatformAlertDialog(
                     title: Text('QR Code'),
-                    content: Text('Enter Link or Text to generate QR Code'),
+                    content: Text('Enter some text to generate QR Code'),
                     actions: <Widget>[
-                      CupertinoDialogAction(
-                        onPressed: (){
-                          Navigator.pop(context);
-                        },
+                      PlatformDialogAction(
+                        onPressed: () => Navigator.pop(context),
                         child: Text('Ok'),
                       ),
-                      
                     ],
                   ),
                 );

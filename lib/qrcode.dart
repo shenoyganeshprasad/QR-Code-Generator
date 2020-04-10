@@ -6,7 +6,7 @@ class QrCode extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  var size = MediaQuery.of(context).size.width / 2;
+    var size = MediaQuery.of(context).size.width / 2;
     return Scaffold(
       appBar: AppBar(
         title: Text('QR Code'),
