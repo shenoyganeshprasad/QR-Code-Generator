@@ -23,14 +23,22 @@ class _HomepageState extends State<Homepage> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 30.0),
             child: TextField(
+              cursorColor: Colors.amber,
               onChanged: (val) {
                 value = val;
               },
               autofocus: false,
               autocorrect: false,
               decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Text/Link',
+                fillColor: Colors.amber,
+                focusColor: Colors.amber,
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.amber),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.amber),
+                ),
+                hintText: 'Text/Link',
                 helperText: 'Example: https://www.google.com/',
               ),
             ),

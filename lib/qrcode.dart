@@ -10,6 +10,7 @@ class QrCode extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('QR Code'),
+        backgroundColor: Colors.amber,
       ),
       body: Center(
         child: Image(
