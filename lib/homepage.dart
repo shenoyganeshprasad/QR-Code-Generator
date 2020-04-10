@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:qrcode_app/qrcode.dart';
 
 class Homepage extends StatefulWidget {
   @override
@@ -20,12 +21,11 @@ class _HomepageState extends State<Homepage> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 30.0),
             child: TextField(
-              onChanged: (val){
+              onChanged: (val) {
                 value = val;
               },
               autofocus: true,
               autocorrect: false,
-              textInputAction: TextInputAction.send,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Text',
@@ -34,9 +34,18 @@ class _HomepageState extends State<Homepage> {
             ),
           ),
           // SizedBox(height: 30.0),
-          CupertinoButton.filled(child: Text('Generate'), onPressed: () {
-            print(value);
-          })
+          CupertinoButton.filled(
+            child: Text('Generate'),
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => QrCode(
+                    text: value,
+                  ),
+                ),
+              );
+            },
+          )
         ],
       ),
     );
