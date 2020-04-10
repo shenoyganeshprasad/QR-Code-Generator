@@ -24,7 +24,7 @@ class _HomepageState extends State<Homepage> {
               onChanged: (val) {
                 value = val;
               },
-              autofocus: true,
+              autofocus: false,
               autocorrect: false,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
@@ -37,13 +37,32 @@ class _HomepageState extends State<Homepage> {
           CupertinoButton.filled(
             child: Text('Generate'),
             onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => QrCode(
-                    text: value,
+              if (value != "") {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => QrCode(
+                      text: value,
+                    ),
                   ),
-                ),
-              );
+                );
+              } else {
+                showCupertinoDialog(
+                  context: context,
+                  builder: (_) => CupertinoAlertDialog(
+                    title: Text('QR Code'),
+                    content: Text('Enter Link or Text to generate QR Code'),
+                    actions: <Widget>[
+                      CupertinoDialogAction(
+                        onPressed: (){
+                          Navigator.pop(context);
+                        },
+                        child: Text('Ok'),
+                      ),
+                      
+                    ],
+                  ),
+                );
+              }
             },
           )
         ],
