@@ -15,6 +15,7 @@ class _HomepageState extends State<Homepage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('QR Code'),
+        backgroundColor: Colors.amber,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -29,14 +30,16 @@ class _HomepageState extends State<Homepage> {
               autocorrect: false,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
-                labelText: 'Text',
-                helperText: 'https://www.google.com/',
+                labelText: 'Text/Link',
+                helperText: 'Example: https://www.google.com/',
               ),
             ),
           ),
           // SizedBox(height: 30.0),
-          PlatformButton(
-            child: Text('Generate'),
+          RaisedButton(
+            child: Text('Generate', style: TextStyle(color: Colors.white)),
+            color: Colors.amber,
+            shape: StadiumBorder(),
             onPressed: () {
               if (value != "") {
                 Navigator.of(context).push(
